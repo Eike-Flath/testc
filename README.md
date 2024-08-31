@@ -14,7 +14,7 @@ static bool foo(int n) {
 }
 
 TC_TEST(example_test) {
-  TC_ASSERTEQ(1 + 1, 2);
+  TC_ASSERT_EQ(1 + 1, 2);
   TC_ASSERT_TRUE(foo(42));
   TC_ASSERT(!foo(3), "%s", "foo(3) should return false");
 }
