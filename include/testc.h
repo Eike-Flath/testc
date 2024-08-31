@@ -92,7 +92,13 @@ extern bool testc_test_failed_;
   TC_ASSERT(!(cond),                                                           \
             "Assertion failed: expected condition `%s` to be false\n", #cond);
 #define TC_ASSERT_EQ(a, b)                                                     \
-  TC_ASSERT((a) == (b), "Assertion failed: `%s` did not equal `%s`\n", #a, #b)
+  TC_ASSERT((a) == (b), "Assertion failed: `%s` didn't equal `%s`\n", #a, #b)
+#define TC_ASSERT_NE(a, b)                                                     \
+  TC_ASSERT((a) != (b), "Assertion failed: `%s` equaled `%s`\n", #a, #b)
+#define TC_ASSERT_NULL(a)                                                      \
+  TC_ASSERT((a) == NULL, "Assertion failed: `%s` wasn't null\n", #a)
+#define TC_ASSERT_NONNULL(a)                                                   \
+  TC_ASSERT((a) != NULL, "Assertion failed: `%s` was null\n", #a)
 #define TC_ASSERT_GE(a, b)                                                     \
   TC_ASSERT((a) >= (b),                                                        \
             "Assertion failed: `%s` wasn't greater or equal than `%s`\n", #a,  \
