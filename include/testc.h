@@ -15,10 +15,10 @@
 
 #if __has_include("stdio.h")
 #include <stdio.h>
-#define TC_PRINTF(f, ...) fprintf(stderr, f, __VA_ARGS__);
+#define TC_PRINTF(f, ...) fprintf(stderr, f, __VA_ARGS__)
 #else
 int testc_printf_impl_(const char *fmt, ...);
-#define TC_PRINTF(f, ...) testc_printf_impl_(f, __VA_ARGS__);
+#define TC_PRINTF(f, ...) testc_printf_impl_(f, __VA_ARGS__)
 #endif /* __has_include("stdio.h") */
 
 #if !defined(TC_ATTR_CONSTRUCTOR) && defined(__has_attribute) &&               \
