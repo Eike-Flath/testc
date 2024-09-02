@@ -4,6 +4,15 @@
 #include <stdbool.h>
 #include <stddef.h>
 
+#ifndef __has_include
+#warning "compiler doesn't support __has_include"
+#define __has_include(h) 1
+#endif
+
+#ifndef __has_attribute
+#define __has_attribute(a) 0
+#endif
+
 #if __has_include("stdlib.h")
 #include <stdlib.h>
 #define TC_EXIT_SUCCESS EXIT_SUCCESS
@@ -21,8 +30,7 @@ int testc_printf_impl_(const char *fmt, ...);
 #define TC_PRINTF(f, ...) testc_printf_impl_(f, __VA_ARGS__)
 #endif /* __has_include("stdio.h") */
 
-#if !defined(TC_ATTR_CONSTRUCTOR) && defined(__has_attribute) &&               \
-    __has_attribute(constructor)
+#if !defined(TC_ATTR_CONSTRUCTOR) && __has_attribute(constructor)
 #define TC_ATTR_CONSTRUCTOR __attribute__((constructor))
 #endif
 
