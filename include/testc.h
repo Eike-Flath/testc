@@ -35,7 +35,8 @@ int testc_printf_impl_(const char *fmt, ...);
 #endif
 
 #ifndef TC_ATTR_CONSTRUCTOR
-#error "TC_ATTR_CONSTRUCTOR isn't defined"
+#warning "TC_ATTR_CONSTRUCTOR isn't defined, tests won't register"
+#define TC_ATTR_CONSTRUCTOR
 #endif
 
 struct testc_test_node_ {
